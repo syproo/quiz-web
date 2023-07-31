@@ -1,88 +1,90 @@
-## JS Assignment
+## API File for Managing Students
 
-### Instructions
+In this project, you will be implementing an API to manage student data using Node.js and Express. The API will allow users to perform CRUD (Create, Read, Update, Delete) operations on student records, including fetching all students, creating a new student, updating an existing student, deleting a student, and fetching a single student by ID.
 
-1. Fork this repository to your own account by clicking the "Fork" button in the top right.
-2. Clone the repository to your local machine. Using the command line, navigate to the directory you want to clone the repository into and run the following command:
+### Setup Instructions
 
-```
-git clone URL
-```
+Follow these steps to set up the project:
 
-3. Create a new branch for your work. Using the command line, navigate to the repository directory and run the following command:
+Clone the repository:
 
-```
-git checkout -b BRANCH_NAME
-```
+```bash
 
-4. Complete the assignment and commit your work. Using the command line, navigate to the repository directory and run the following commands:
-
-```
-git add .
-git commit -m "COMMIT MESSAGE"
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 ```
 
-5. Push your changes to your forked repository. Using the command line, navigate to the repository directory and run the following command:
+### Install dependencies:
 
+```bash
+npm install
 ```
-git push origin BRANCH_NAME
+
+- Create a new file named app.js in the root of your project directory. This file will contain the API code.
+
+- Open app.js
+- Implement the routes for managing students (GET all students, POST student, PUT student, DELETE student, GET one student) in app.js. Use an in-memory array or a database for storing student data. You can start with a simple in-memory array for testing purposes.
+
+- Test your API locally to ensure it's working as expected. You can use tools like Postman or curl to test the API endpoints.
+
+Once you are satisfied with the API implementation and testing on your local machine, proceed to run test.
+
+Run the Jest tests locally to ensure they pass successfully:
+
+```bash
+npm test
 ```
 
-6. Create a pull request to submit your work. Navigate to your forked repository in the browser and click the "New pull request" button. Fill out the pull request form and click "Create pull request".
+## API Endpoints
 
-### Setup
+The API will have the following endpoints:
 
-1. Run `npm install` to install dependencies.
-2. Run `npm test` to run the tests. The tests will run automatically every time you save a file.
+- GET all students: Retrieve a list of all students.
 
-### Assignment
+URL: /api/students
 
-1. Write a function that takes two parameters, an array of numbers and a target number. The function should return a pair of numbers from the array that adds up to the target number. If no such pair is found, the function should return null.
+Method: GET
 
-   Example input: findPair([1, 2, 3, 4], 5)
-   Example output: [1, 4]
+Response: Array of student objects, each containing 'id' and 'name' properties.
 
-2. Write a function that takes a string as input and returns the reverse of the string.
+- POST student: Create a new student.
 
-   Example input: reverseString("hello")
-   Example output: "olleh"
+URL: /api/students
 
-3. Write a function that takes an array of numbers as input and returns the sum of the two largest numbers in the array.
+Method: POST
 
-   Example input: sumLargest([1, 2, 3, 4])
-   Example output: 7
+Request Body: JSON object with 'id' and 'name' properties for the new student.
 
-4. Write a function that takes an array of strings as input and returns a new array that contains only the strings that have more than three characters.
+Response: JSON object representing the newly created student.
 
-   Example input: filterStrings(["hi", "hello", "hey", "howdy"])
-   Example output: ["hello", "howdy"]
+- PUT student: Update an existing student.
 
-5. Write a function that takes an array of numbers as input and returns a new array that contains only the even numbers.
+URL: /api/students/:id
 
-   Example input: filterEven([1, 2, 3, 4, 5, 6])
-   Example output: [2, 4, 6]
+Method: PUT
 
-6. Write a function that takes an array of objects and a key name as input and returns a new array that contains only the values of the specified key from each object in the array.
+Parameters: 'id' - The ID of the student to update.
 
-   Example input: pluck([{name: "John", age: 30}, {name: "Jane", age: 25}], "name")
-   Example output: ["John", "Jane"]
+Request Body: JSON object with 'name' property containing the updated name for the student.
 
-7. Write a function that takes a string as input and returns true if the string is a palindrome (reads the same backwards as forwards), and false otherwise.
+Response: JSON object representing the updated student.
 
-   Example input: isPalindrome("racecar")
-   Example output: true
+- DELETE student: Delete a student.
 
-8. Write a function that takes a string as input and returns the most frequent character in the string. If there are multiple characters that appear with the same frequency, return the one that appears first.
+URL: /api/students/:id
 
-   Example input: mostFrequent("hello world")
-   Example output: "l"
+Method: DELETE
 
-9. Write a function that takes an array of strings as input and returns a new array that contains the length of each string in the original array.
+Parameters: 'id' - The ID of the student to delete.
 
-   Example input: stringLengths(["hi", "hello", "hey", "howdy"])
-   Example output: [2, 5, 3, 5]
+Response: JSON object with a message indicating successful deletion.
 
-10. Write a function that takes an array of numbers as input and returns the index of the first number in the array that is greater than or equal to 10.
+- GET one student: Retrieve a single student by ID.
 
-    Example input: firstGreater([1, 5, 15, 20])
-    Example output: 2
+URL: /api/students/:id
+
+Method: GET
+
+Parameters: 'id' - The ID of the student to fetch.
+
+Response: JSON object representing the student with the specified ID.

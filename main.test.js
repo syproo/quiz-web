@@ -16,8 +16,8 @@ describe("findPair", () => {
     expect(findPair([1, 2, 3, 4], 5)).toEqual([1, 4])
   })
 
-  test("returns null for input [1, 2, 3, 4] and target 7", () => {
-    expect(findPair([1, 2, 3, 4], 7)).toBeNull()
+  test("returns [1,7] for input [1, 2, 3, 4] and target 7", () => {
+    expect(findPair([1, 2, 3, 4], 7)).toEqual([3,4])
   })
 })
 
@@ -107,7 +107,7 @@ describe("mostFrequent", () => {
   })
 
   test("Returns first character when multiple are equally frequent", () => {
-    expect(mostFrequent("abbccc")).toBe("a")
+    expect(mostFrequent("abbccc")).toBe("c")
   })
 })
 
